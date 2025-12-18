@@ -1,1 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Study Group Matching</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <h1>Study Group Matching</h1>
+        <p>Match students into study groups based on course and availability.</p>
+      </header>
+
+      <main class="app-main">
+        <section class="card" id="student-section">
+          <h2>Student Registration</h2>
+          <form id="student-form">
+            <div class="field-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+
+            <div class="field-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+
+            <div class="field-row">
+              <label for="preferred_group_size">Preferred Group Size</label>
+              <input
+                id="preferred_group_size"
+                name="preferred_group_size"
+                type="number"
+                min="2"
+                max="5"
+                value="3"
+              />
+            </div>
+
+            <div class="field-row">
+              <label for="courses">Courses</label>
+              <select id="courses" name="courses" multiple size="4"></select>
+              <small>Hold Ctrl (Cmd on Mac) to select multiple.</small>
+            </div>
+
+            <div class="field-row">
+              <label for="timeslots">Availability</label>
+              <select id="timeslots" name="timeslots" multiple size="6"></select>
+              <small>Select all time slots you could meet.</small>
+            </div>
+
+            <div class="actions">
+              <button type="submit">Save Student</button>
+              <span id="student-status" class="status"></span>
+            </div>
+          </form>
+        </section>
+
+        <section class="card" id="matching-section">
+          <h2>Run Matching</h2>
+          <p>
+            Once you have added students, run the matcher to form study groups by
+            course and overlapping availability.
+          </p>
+          <div class="actions">
+            <button id="run-matching">Run Matching</button>
+            <span id="matching-status" class="status"></span>
+          </div>
+        </section>
+
+        <section class="card" id="groups-section">
+          <h2>Group Results</h2>
+          <div id="groups-container" class="groups-container">
+            <p class="muted">No groups yet. Add students and run matching.</p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <span>Study Group Matching App &middot; Python + SQLite + JS</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
 
